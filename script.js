@@ -30,23 +30,28 @@ document.querySelector('.check').addEventListener('click', function(){
     }
     
 // When guess is too high 
-  }else if (guess > secretNumber){
-    if(score > 0){
-      document.querySelector('.message').textContent = 'Guess is too high! Number should be between 1 - 20';
+
+// When guess is wrong 
+  }else if(guess !== secretNumber) {
+     if(score > 0){
+      document.querySelector('.message').textContent = guess > secretNumber ? 'Guess is too high! Number should be between 1 - 20':  'Guess is too low! Number should be between 1 - 20';
     score--;
     document.querySelector('.score').textContent = score;
     }else{
       document.querySelector('.message').textContent = 'Game Over';
     }
+  // }else if (guess > secretNumber){
+   
  // When guess is too low 
-  }else if (guess < secretNumber){
-    if(score > 0){
-      document.querySelector('.message').textContent = 'Guess is too low! Number should be between 1 - 20';
-    score--;
-    document.querySelector('.score').textContent = score;
-    }else{
-      document.querySelector('.message').textContent = 'Game Over';
-    }
+  // }else if (guess < secretNumber){
+  //   if(score > 0){
+  //     document.querySelector('.message').textContent = 'Guess is too low! Number should be between 1 - 20';
+  //   score--;
+  //   document.querySelector('.score').textContent = score;
+  //   }else{
+  //     document.querySelector('.message').textContent = 'Game Over';
+  //   }
+  // }
   }
 })
 
