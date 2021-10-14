@@ -4,6 +4,9 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
+const displayMessage = function(message){
+  document.querySelector('.message').textContent = message;
+}
 
 // Click Event functionality 
 document.querySelector('.check').addEventListener('click', function(){
@@ -13,8 +16,8 @@ document.querySelector('.check').addEventListener('click', function(){
 
 // When there is no guess 
   if(!guess) {
-    document.querySelector('.message').textContent = 'No Number!';
-
+    // document.querySelector('.message').textContent = ;
+    displayMessage('No Number!');
 // When player wins 
   }else if (guess === secretNumber){
     document.querySelector('.message').textContent = 'Correct Number!';
@@ -27,9 +30,7 @@ document.querySelector('.check').addEventListener('click', function(){
     if (score > highScore ){
       highScore = score;
       document.querySelector('.highscore').textContent = highScore;
-    }
-    
-// When guess is too high 
+    } 
 
 // When guess is wrong 
   }else if(guess !== secretNumber) {
@@ -40,18 +41,6 @@ document.querySelector('.check').addEventListener('click', function(){
     }else{
       document.querySelector('.message').textContent = 'Game Over';
     }
-  // }else if (guess > secretNumber){
-   
- // When guess is too low 
-  // }else if (guess < secretNumber){
-  //   if(score > 0){
-  //     document.querySelector('.message').textContent = 'Guess is too low! Number should be between 1 - 20';
-  //   score--;
-  //   document.querySelector('.score').textContent = score;
-  //   }else{
-  //     document.querySelector('.message').textContent = 'Game Over';
-  //   }
-  // }
   }
 })
 
@@ -67,4 +56,5 @@ document.querySelector('.again').addEventListener('click', function() {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 })
+
 
