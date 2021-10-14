@@ -20,7 +20,7 @@ document.querySelector('.check').addEventListener('click', function(){
     displayMessage('No Number!');
 // When player wins 
   }else if (guess === secretNumber){
-    document.querySelector('.message').textContent = 'Correct Number!';
+    displayMessage('Correct Number!');
     document.querySelector('.number').textContent = secretNumber;
     // Change css style 
     document.querySelector('body').style.backgroundColor = '#60b347';
@@ -35,7 +35,8 @@ document.querySelector('.check').addEventListener('click', function(){
 // When guess is wrong 
   }else if(guess !== secretNumber) {
      if(score > 0){
-      document.querySelector('.message').textContent = guess > secretNumber ? 'Guess is too high! Number should be between 1 - 20':  'Guess is too low! Number should be between 1 - 20';
+      // document.querySelector('.message').textContent = 
+      displayMessage(guess > secretNumber ? 'Guess is too high! Number should be between 1 - 20':  'Guess is too low! Number should be between 1 - 20');
     score--;
     document.querySelector('.score').textContent = score;
     }else{
@@ -52,7 +53,7 @@ document.querySelector('.again').addEventListener('click', function() {
   document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
-  document.querySelector('.message').textContent = 'Start Guessing';
+  displayMessage('Start Guessing');
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
 })
